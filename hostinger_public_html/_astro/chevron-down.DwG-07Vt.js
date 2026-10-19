@@ -1,0 +1,1 @@
+import{n as e}from"./jsx-dev-runtime.DV1VEKZa.js";var t=e(`chevron-down`,[[`path`,{d:`m6 9 6 6 6-6`,key:`qrunsl`}]]);export{t};
