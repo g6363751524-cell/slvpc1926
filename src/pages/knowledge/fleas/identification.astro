@@ -1,0 +1,289 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { Header } from '../../../components/Header';
+import { Footer } from '../../../components/Footer';
+import { FloatingActions } from '../../../components/FloatingActions';
+import {
+  BookOpen,
+  Search,
+  Eye,
+  Layers,
+  Sparkles,
+  AlertTriangle,
+  CheckCircle2,
+  ArrowRight,
+  Phone,
+  MessageCircle,
+  Mail,
+  MapPin,
+  PawPrint,
+  Home,
+  ShieldCheck,
+  Activity
+} from 'lucide-react';
+
+const relatedArticles = [
+  {
+    title: 'Where Fleas Hide & Breed',
+    desc: 'Discover harbourage zones in carpets, rugs, baseboard crevices, pet bedding, and upholstery.',
+    href: '/knowledge/fleas/where-they-hide'
+  },
+  {
+    title: 'How Fleas Enter & Spread',
+    desc: 'Understand entry vectors through pets, wildlife, visitors, and developing pupal cocoons.',
+    href: '/knowledge/fleas/how-they-spread'
+  },
+  {
+    title: 'Flea Prevention Guide',
+    desc: 'Comprehensive vacuuming regimens, pet hygiene, environmental sanitization, and structural barriers.',
+    href: '/knowledge/fleas/prevention'
+  },
+  {
+    title: 'Professional Flea Treatment',
+    desc: 'Our 4-stage environmental eradication protocol targeting adults, larvae, and pupal emergence.',
+    href: '/knowledge/fleas/treatment-guide'
+  },
+  {
+    title: 'Flea FAQs',
+    desc: 'Common questions on bites, indoor survival without pets, chemical safety, and eradication timeframes.',
+    href: '/knowledge/fleas/faq'
+  }
+];
+
+const identificationSigns = [
+  {
+    title: 'Persistent Pet Scratching & Biting',
+    desc: 'Dogs and cats frequently scratching behind ears, biting hind legs, flanks, and the base of the tail due to severe saliva irritation.',
+    icon: PawPrint
+  },
+  {
+    title: 'Flea Dirt (Digested Blood Droppings)',
+    desc: 'Tiny reddish-black pepper-like specks on pet fur, pet bedding, or light-coloured rugs. When placed on a wet tissue, flea dirt dissolves into reddish blood stains.',
+    icon: Activity
+  },
+  {
+    title: 'Clustered Lower-Body Bites on Humans',
+    desc: 'Small, intensely itchy red bumps with a central puncture halo, typically concentrated around ankles, feet, calves, and shins after walking across infested rugs.',
+    icon: AlertTriangle
+  },
+  {
+    title: 'Visible Jumping Insects',
+    desc: 'Tiny, wingless, laterally compressed reddish-brown insects (1.5–3 mm) capable of jumping up to 20 cm vertically when disturbed from carpet fibres.',
+    icon: Eye
+  },
+  {
+    title: 'Flea Eggs in Rug Fibres & Floor Gaps',
+    desc: 'Microscopic, smooth oval white specks (0.5 mm) that easily roll off pet fur into carpet piles, between hardwood plank gaps, and under couch cushions.',
+    icon: Layers
+  },
+  {
+    title: 'Pale Gums in Pets (Flea Allergy Dermatitis)',
+    desc: 'Severe infestations cause hair thinning, scabs, and localized dermatitis on pets; heavy blood loss in puppies or kittens can induce fatigue and lethargy.',
+    icon: ShieldCheck
+  }
+];
+---
+
+<Layout
+  title="Flea Identification | Signs, Bites & Bangalore Environmental Guide | SLV Pest Control"
+  description="Learn how to identify flea infestations in Bangalore homes and apartments. Recognize flea dirt, bites, pet scratching behavior, and microscopic eggs."
+  canonical="https://slvpestcontrol.com/knowledge/fleas/identification"
+>
+  <Header client:load activeItem="knowledge" />
+
+  <main class="flex-1 w-full relative overflow-hidden bg-[#090a0c]">
+    {/* Background glow effects */}
+    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      <div class="absolute -top-40 right-1/4 w-[500px] h-[500px] bg-[#E5A93C]/[0.06] rounded-full blur-[140px]"></div>
+      <div class="absolute top-[40%] left-[-100px] w-[500px] h-[500px] bg-[#E5A93C]/[0.04] rounded-full blur-[160px]"></div>
+    </div>
+
+    {/* Breadcrumbs */}
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-zinc-400">
+        <a href="/" class="hover:text-white transition">Home</a>
+        <span>/</span>
+        <a href="/knowledge" class="hover:text-white transition">Knowledge Hub</a>
+        <span>/</span>
+        <a href="/services/fleas" class="hover:text-white transition">Fleas</a>
+        <span>/</span>
+        <span class="text-[#F6C453] font-semibold">Flea Identification</span>
+      </nav>
+    </div>
+
+    {/* Article Hero */}
+    <section class="relative z-10 pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-white/[0.06]">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
+          <BookOpen class="w-3.5 h-3.5 text-[#E5A93C]" />
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase font-mono">
+            FLEA EDUCATIONAL GUIDE • IDENTIFICATION
+          </span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.12] mb-4 font-heading">
+          Flea Identification &amp; Infestation Signs in <span class="slv-gold-text">Bangalore</span>
+        </h1>
+
+        <p class="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          Distinguish active flea infestations from other textile pests. Learn to spot adult cat and dog fleas (<em>Ctenocephalides</em>), identify flea dirt, and detect environmental eggs across household fibres.
+        </p>
+      </div>
+    </section>
+
+    {/* Identification Key Signs Grid */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="w-5 h-[1.5px] bg-[#E5A93C]"></span>
+            <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase font-mono">
+              EARLY DIAGNOSTICS
+            </span>
+            <span class="w-5 h-[1.5px] bg-[#E5A93C]"></span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight font-heading">
+            6 Cardinal Signs of an Indoor Flea Infestation
+          </h2>
+          <p class="text-zinc-400 text-xs sm:text-sm mt-3 leading-relaxed">
+            Because adult fleas represent only 5% of the total environmental population, early biological detection stops rapid larval progression.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {identificationSigns.map((sign) => {
+            const Icon = sign.icon;
+            return (
+              <div class="slv-card rounded-2xl p-6 sm:p-7 border border-white/[0.08] hover:border-[#E5A93C]/40 transition-all flex flex-col justify-between group">
+                <div>
+                  <div class="w-12 h-12 rounded-xl bg-[#E5A93C]/10 border border-[#E5A93C]/20 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                    <Icon class="w-6 h-6 text-[#F6C453]" />
+                  </div>
+                  <h3 class="text-lg font-bold text-white mb-2.5 font-heading group-hover:text-[#F6C453] transition-colors">
+                    {sign.title}
+                  </h3>
+                  <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                    {sign.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    {/* Flea Biology & Diagnostics Section */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06] bg-[#0c0d12]/50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div>
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase block mb-2 font-mono">
+            PHYSICAL CHARACTERISTICS
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight font-heading mb-4">
+            Anatomy &amp; Biological Features of Household Fleas
+          </h2>
+          <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+            The prevailing species infesting Bangalore residential apartments and independent villas is the Cat Flea (<em>Ctenocephalides felis</em>), which indiscriminately feeds on cats, dogs, and human occupants.
+          </p>
+          <ul class="space-y-3 text-xs sm:text-sm text-zinc-300">
+            <li class="flex items-start gap-2.5">
+              <CheckCircle2 class="w-4 h-4 text-[#F6C453] shrink-0 mt-0.5" />
+              <span><strong>Laterally Flattened Body:</strong> Fleas are compressed from side to side, allowing them to glide frictionlessly between animal hair strands and dense carpet piles.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <CheckCircle2 class="w-4 h-4 text-[#F6C453] shrink-0 mt-0.5" />
+              <span><strong>Wingless with Powerful Jumping Legs:</strong> Lacking wings, fleas possess enlarged hind legs powered by resilin protein, propelling them over 150 times their body length.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <CheckCircle2 class="w-4 h-4 text-[#F6C453] shrink-0 mt-0.5" />
+              <span><strong>Backward-Facing Spines:</strong> Microscopic combs and bristles (ctenidia) lock the insect into host fur, preventing dislodgement during vigorous pet grooming.</span>
+            </li>
+          </ul>
+        </div>
+
+        {/* The White Sock Test Diagnostic */}
+        <div class="slv-card rounded-2xl p-6 sm:p-8 border border-[#E5A93C]/30 bg-[#121316]/90">
+          <h3 class="text-lg font-bold text-white mb-2 font-heading flex items-center gap-2">
+            <Search class="w-5 h-5 text-[#F6C453]" />
+            <span>The Diagnostic "White Sock Test"</span>
+          </h3>
+          <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-4">
+            If you suspect fleas inside your home or pet area, put on clean white knee-high cotton socks and slowly walk across suspect carpets, rugs, and pet resting zones. Fleas are attracted to body warmth and carbon dioxide; they will jump onto the white fabric, appearing as clear, dark moving specks that confirm an environmental infestation.
+          </p>
+          <div class="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs">
+            <span class="text-zinc-400">Suspect active flea emergence in your premises?</span>
+            <a href="/services/fleas" class="text-[#F6C453] font-bold hover:underline inline-flex items-center gap-1">
+              <span>View Flea Control Services</span>
+              <ArrowRight class="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Related Knowledge Guides */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase block mb-2 font-mono">
+            CONTINUE LEARNING
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight font-heading">
+            Related Flea Educational Resources
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {relatedArticles.map((article) => (
+            <a
+              href={article.href}
+              class="slv-card rounded-2xl p-6 border border-white/[0.08] hover:border-[#E5A93C]/40 transition-all flex flex-col justify-between group block"
+            >
+              <div>
+                <span class="text-xs font-mono font-bold text-[#F6C453] uppercase tracking-wider block mb-2">
+                  Flea Guide
+                </span>
+                <h3 class="text-base font-bold text-white group-hover:text-[#F6C453] transition-colors mb-2 font-heading">
+                  {article.title}
+                </h3>
+                <p class="text-zinc-400 text-xs leading-relaxed mb-4">
+                  {article.desc}
+                </p>
+              </div>
+              <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs font-bold text-[#FFE08A] group-hover:text-white transition-colors">
+                <span>Read Guide</span>
+                <ArrowRight class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#E5A93C]" />
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Direct CTA */}
+    <section class="relative z-10 py-14 border-b border-white/[0.06] bg-[#0c0d10]/60">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl sm:text-3xl font-black text-white font-heading mb-3">
+          Need Professional Flea Eradication in Bangalore?
+        </h2>
+        <p class="text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto mb-6">
+          SLV Pest Control deploys insect growth regulators (IGRs) and targeted micro-sprays to eradicate adult fleas, larvae, and pupae.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="tel:9180397822" class="slv-btn-primary px-7 py-3 text-xs sm:text-sm font-bold gap-2 uppercase tracking-wider">
+            <Phone class="w-4 h-4 text-[#090a0c]" />
+            <span>Call 91803 97822</span>
+          </a>
+          <a href="/services/fleas" class="slv-btn-secondary px-7 py-3 text-xs sm:text-sm font-bold gap-2 uppercase tracking-wider">
+            <span>Explore Flea Treatments</span>
+            <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingActions client:load />
+</Layout>

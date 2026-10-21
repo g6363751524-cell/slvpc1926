@@ -7,6 +7,9 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+ 
+  # Route /api/contact to /api/contact.php
+  RewriteRule ^api/contact/?$ api/contact.php [L,QSA]
 
   # Force HTTPS (optional - uncomment if Hostinger SSL is activated)
   # RewriteCond %{HTTPS} !=on

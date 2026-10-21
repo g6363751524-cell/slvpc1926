@@ -1,0 +1,260 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { Header } from '../../../components/Header';
+import { Footer } from '../../../components/Footer';
+import { FloatingActions } from '../../../components/FloatingActions';
+import {
+  BookOpen,
+  Search,
+  Eye,
+  Layers,
+  Sparkles,
+  AlertTriangle,
+  CheckCircle2,
+  ArrowRight,
+  Phone,
+  MessageCircle,
+  Mail,
+  MapPin,
+  PawPrint,
+  Home,
+  ShieldCheck,
+  Activity,
+  Droplets,
+  CalendarCheck
+} from 'lucide-react';
+
+const relatedArticles = [
+  {
+    title: 'Flea Identification',
+    desc: 'Diagnose flea bites, adult physical traits, and the white sock diagnostic test.',
+    href: '/knowledge/fleas/identification'
+  },
+  {
+    title: 'Where Fleas Hide & Breed',
+    desc: 'Discover harbourage zones in carpets, rugs, baseboard crevices, and upholstery.',
+    href: '/knowledge/fleas/where-they-hide'
+  },
+  {
+    title: 'How Fleas Enter & Spread',
+    desc: 'Understand entry vectors through pets, visiting animals, and carpet fibres.',
+    href: '/knowledge/fleas/how-they-spread'
+  },
+  {
+    title: 'Flea Prevention Guide',
+    desc: 'Sanitation steps, regular vacuuming, pet care coordination, and perimeter barriers.',
+    href: '/knowledge/fleas/prevention'
+  },
+  {
+    title: 'Flea FAQs',
+    desc: 'Frequently asked questions regarding flea lifecycles, human bites, and safety.',
+    href: '/knowledge/fleas/faq'
+  }
+];
+
+const treatmentStages = [
+  {
+    step: '01',
+    title: 'Forensic Environmental Inspection',
+    desc: 'We map indoor carpet piles, pet resting zones, baseboards, and shaded exterior porches to measure the severity of environmental egg and larval reservoirs.'
+  },
+  {
+    step: '02',
+    title: 'Targeted Adulticide Knockdown Mist',
+    desc: 'Precision application of odorless, CIBRC-approved adulticides targeting live biting adults on rugs, floor perimeters, and under furniture with zero chemical odor.'
+  },
+  {
+    step: '03',
+    title: 'Insect Growth Regulator (IGR) Application',
+    desc: 'Application of specialized juvenile hormone mimics (Pyriproxyfen/Methoprene) that prevent eggs from hatching and stop larvae from pupating into adults.'
+  },
+  {
+    step: '04',
+    title: 'Pupal Emergence & Warranty Follow-up',
+    desc: 'Post-treatment guidance and follow-up monitoring to eradicate any newly hatched pupae as they emerge over the subsequent 10 to 14 days under written SLV service care.'
+  }
+];
+---
+
+<Layout
+  title="Flea Treatment Guide | 4-Stage Environmental Eradication | SLV Pest Control"
+  description="Explore the complete 4-stage professional flea treatment protocol in Bangalore. Learn how adulticides, IGRs, and vacuuming eliminate fleas across all life stages."
+  canonical="https://slvpestcontrol.com/knowledge/fleas/treatment-guide"
+>
+  <Header client:load activeItem="knowledge" />
+
+  <main class="flex-1 w-full relative overflow-hidden bg-[#090a0c]">
+    {/* Background glow effects */}
+    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      <div class="absolute -top-40 right-1/4 w-[500px] h-[500px] bg-[#E5A93C]/[0.06] rounded-full blur-[140px]"></div>
+      <div class="absolute top-[40%] left-[-100px] w-[500px] h-[500px] bg-[#E5A93C]/[0.04] rounded-full blur-[160px]"></div>
+    </div>
+
+    {/* Breadcrumbs */}
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-zinc-400">
+        <a href="/" class="hover:text-white transition">Home</a>
+        <span>/</span>
+        <a href="/knowledge" class="hover:text-white transition">Knowledge Hub</a>
+        <span>/</span>
+        <a href="/services/fleas" class="hover:text-white transition">Fleas</a>
+        <span>/</span>
+        <span class="text-[#F6C453] font-semibold">Treatment Guide</span>
+      </nav>
+    </div>
+
+    {/* Article Hero */}
+    <section class="relative z-10 pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-white/[0.06]">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
+          <BookOpen class="w-3.5 h-3.5 text-[#E5A93C]" />
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase font-mono">
+            FLEA EDUCATIONAL GUIDE • TREATMENT PROTOCOLS
+          </span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.12] mb-4 font-heading">
+          Professional Flea Treatment Protocol in <span class="slv-gold-text">Bangalore</span>
+        </h1>
+
+        <p class="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          Overcoming persistent flea infestations requires more than standard surface sprays. Discover our dual-action chemical approach integrating quick-knockdown adulticides with long-lasting Insect Growth Regulators.
+        </p>
+      </div>
+    </section>
+
+    {/* 4-Stage Protocol Section */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="w-5 h-[1.5px] bg-[#E5A93C]"></span>
+            <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase font-mono">
+              THE SLV METHODOLOGY
+            </span>
+            <span class="w-5 h-[1.5px] bg-[#E5A93C]"></span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight font-heading">
+            Our 4-Stage Integrated Flea Management Journey
+          </h2>
+          <p class="text-zinc-400 text-xs sm:text-sm mt-3 leading-relaxed">
+            Every step is designed to dismantle a specific stage of the flea lifecycle, delivering immediate relief and long-term biological prevention.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {treatmentStages.map((stage) => (
+            <div class="slv-card rounded-2xl p-6 sm:p-7 border border-white/[0.08] hover:border-[#E5A93C]/40 transition-all flex flex-col justify-between group">
+              <div>
+                <span class="text-3xl font-black font-heading slv-gold-text mb-3 block">
+                  {stage.step}
+                </span>
+                <h3 class="text-lg font-bold text-white mb-2.5 font-heading group-hover:text-[#F6C453] transition-colors">
+                  {stage.title}
+                </h3>
+                <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                  {stage.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Chemistry & Pet Safety Protocols */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06] bg-[#0c0d12]/50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div>
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase block mb-2 font-mono">
+            SAFETY &amp; FORMULATION
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight font-heading mb-4">
+            CIB&amp;RC Certified Chemistries &amp; Family Safety
+          </h2>
+          <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+            At SLV Pest Control, we utilize non-staining, odourless formulations approved by the Central Insecticides Board &amp; Registration Committee (CIB&amp;RC).
+          </p>
+          <ul class="space-y-3 text-xs sm:text-sm text-zinc-300">
+            <li class="flex items-start gap-2.5">
+              <CheckCircle2 class="w-4 h-4 text-[#F6C453] shrink-0 mt-0.5" />
+              <span><strong>Child &amp; Pet Safety Window:</strong> Occupants and household pets vacate the treated premises for 2 to 3 hours while the targeted micro-mist dries completely. Once dry, residues bind tightly to fibres with no toxic off-gassing.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <CheckCircle2 class="w-4 h-4 text-[#F6C453] shrink-0 mt-0.5" />
+              <span><strong>Dual-Action IGR Technology:</strong> Insect Growth Regulators specifically interfere with insect chitin synthesis and juvenile hormone receptors without affecting mammalian biology.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <CheckCircle2 class="w-4 h-4 text-[#F6C453] shrink-0 mt-0.5" />
+              <span><strong>Synchronized Pet Treatment:</strong> For lasting success, domestic dogs or cats should receive veterinary-approved topical spot-on treatments simultaneously on the day of environmental service.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    {/* Related Knowledge Guides */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase block mb-2 font-mono">
+            CONTINUE LEARNING
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight font-heading">
+            Related Flea Educational Resources
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {relatedArticles.map((article) => (
+            <a
+              href={article.href}
+              class="slv-card rounded-2xl p-6 border border-white/[0.08] hover:border-[#E5A93C]/40 transition-all flex flex-col justify-between group block"
+            >
+              <div>
+                <span class="text-xs font-mono font-bold text-[#F6C453] uppercase tracking-wider block mb-2">
+                  Flea Guide
+                </span>
+                <h3 class="text-base font-bold text-white group-hover:text-[#F6C453] transition-colors mb-2 font-heading">
+                  {article.title}
+                </h3>
+                <p class="text-zinc-400 text-xs leading-relaxed mb-4">
+                  {article.desc}
+                </p>
+              </div>
+              <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs font-bold text-[#FFE08A] group-hover:text-white transition-colors">
+                <span>Read Guide</span>
+                <ArrowRight class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#E5A93C]" />
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Direct CTA */}
+    <section class="relative z-10 py-14 border-b border-white/[0.06] bg-[#0c0d10]/60">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl sm:text-3xl font-black text-white font-heading mb-3">
+          Book Professional Flea Eradication in Bangalore
+        </h2>
+        <p class="text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto mb-6">
+          Same-day technician dispatch across North, South, East, West, and Central Bangalore. Starting at ₹799.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="tel:9180397822" class="slv-btn-primary px-7 py-3 text-xs sm:text-sm font-bold gap-2 uppercase tracking-wider">
+            <Phone class="w-4 h-4 text-[#090a0c]" />
+            <span>Call 91803 97822</span>
+          </a>
+          <a href="/services/fleas" class="slv-btn-secondary px-7 py-3 text-xs sm:text-sm font-bold gap-2 uppercase tracking-wider">
+            <span>Explore Flea Treatments</span>
+            <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingActions client:load />
+</Layout>

@@ -1,0 +1,281 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { Header } from '../../../components/Header';
+import { Footer } from '../../../components/Footer';
+import { FloatingActions } from '../../../components/FloatingActions';
+import {
+  BookOpen,
+  Search,
+  Eye,
+  Layers,
+  Sparkles,
+  AlertTriangle,
+  CheckCircle2,
+  ArrowRight,
+  Phone,
+  MessageCircle,
+  Mail,
+  MapPin,
+  PawPrint,
+  Home,
+  ShieldCheck,
+  Activity,
+  Users,
+  Footprints
+} from 'lucide-react';
+
+const relatedArticles = [
+  {
+    title: 'Flea Identification',
+    desc: 'Diagnose flea bites, adult physical traits, and the white sock diagnostic test.',
+    href: '/knowledge/fleas/identification'
+  },
+  {
+    title: 'Where Fleas Hide & Breed',
+    desc: 'Discover harbourage zones in carpets, rugs, baseboard crevices, and upholstery.',
+    href: '/knowledge/fleas/where-they-hide'
+  },
+  {
+    title: 'Flea Prevention Guide',
+    desc: 'Sanitation steps, regular vacuuming, pet care coordination, and perimeter barriers.',
+    href: '/knowledge/fleas/prevention'
+  },
+  {
+    title: 'Professional Flea Treatment',
+    desc: 'Targeted environmental management targeting eggs, larvae, and pupal emergence.',
+    href: '/knowledge/fleas/treatment-guide'
+  },
+  {
+    title: 'Flea FAQs',
+    desc: 'Frequently asked questions regarding flea lifecycles, human bites, and safety.',
+    href: '/knowledge/fleas/faq'
+  }
+];
+
+const transmissionVectors = [
+  {
+    title: 'Domestic Pets (Dogs & Cats)',
+    desc: 'The primary carrier. Pets roaming through parks, society compounds, or visiting pet salons encounter adult fleas that leap onto their coat within seconds.',
+    icon: PawPrint
+  },
+  {
+    title: 'Stray Animals & Wildlife Vectors',
+    desc: 'Community cats, stray dogs, rodents, and bandicoots traversing apartment basements, car parking lots, and garden lawns drop viable eggs throughout common areas.',
+    icon: Footprints
+  },
+  {
+    title: 'Second-Hand Rugs & Furniture',
+    desc: 'Acquiring pre-owned sofas, vintage carpets, or pet bedding from infested locations introduces dormant pupal cocoons that awaken immediately upon sensing human vibrations.',
+    icon: Home
+  },
+  {
+    title: 'Human Socks, Trousers & Footwear',
+    desc: 'While fleas rarely live on human skin, hungry adult fleas jump onto socks, ankles, and cuffs when you walk through an infested outdoor yard or friend’s home.',
+    icon: Users
+  },
+  {
+    title: 'Inter-Flat Dispersion in Multi-Story Buildings',
+    desc: 'In Bangalore apartments, fleas migrate between balconies, shared service corridors, and ventilation shafts when nearby flats undergo renovations or tenant turnover.',
+    icon: Layers
+  },
+  {
+    title: 'Dormant Pupal "Pupator" Phenomenon',
+    desc: 'Flea pupae inside sticky silken cocoons can enter diapause (metabolic dormancy) for up to 6 to 9 months, suddenly hatching en masse when new tenants move in.',
+    icon: AlertTriangle
+  }
+];
+---
+
+<Layout
+  title="How Fleas Spread | Vectors, Entry Pathways & Bangalore Transmission | SLV Pest Control"
+  description="Understand how fleas enter and spread across Bangalore apartments and residences. Learn about pet transmission, stray vectors, and dormant pupae emergence."
+  canonical="https://slvpestcontrol.com/knowledge/fleas/how-they-spread"
+>
+  <Header client:load activeItem="knowledge" />
+
+  <main class="flex-1 w-full relative overflow-hidden bg-[#090a0c]">
+    {/* Background glow effects */}
+    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      <div class="absolute -top-40 right-1/4 w-[500px] h-[500px] bg-[#E5A93C]/[0.06] rounded-full blur-[140px]"></div>
+      <div class="absolute top-[40%] left-[-100px] w-[500px] h-[500px] bg-[#E5A93C]/[0.04] rounded-full blur-[160px]"></div>
+    </div>
+
+    {/* Breadcrumbs */}
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-zinc-400">
+        <a href="/" class="hover:text-white transition">Home</a>
+        <span>/</span>
+        <a href="/knowledge" class="hover:text-white transition">Knowledge Hub</a>
+        <span>/</span>
+        <a href="/services/fleas" class="hover:text-white transition">Fleas</a>
+        <span>/</span>
+        <span class="text-[#F6C453] font-semibold">How Fleas Spread</span>
+      </nav>
+    </div>
+
+    {/* Article Hero */}
+    <section class="relative z-10 pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-white/[0.06]">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
+          <BookOpen class="w-3.5 h-3.5 text-[#E5A93C]" />
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase font-mono">
+            FLEA EDUCATIONAL GUIDE • TRANSMISSION VECTORS
+          </span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.12] mb-4 font-heading">
+          How Fleas Enter &amp; Spread Across <span class="slv-gold-text">Properties</span>
+        </h1>
+
+        <p class="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          Fleas do not fly, yet they conquer entire households with astonishing speed. Uncover the mechanisms of flea dispersal, host jumping dynamics, and long-term pupal survival.
+        </p>
+      </div>
+    </section>
+
+    {/* Transmission Pathways Grid */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="w-5 h-[1.5px] bg-[#E5A93C]"></span>
+            <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase font-mono">
+              ENTRY &amp; DISPERSION
+            </span>
+            <span class="w-5 h-[1.5px] bg-[#E5A93C]"></span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight font-heading">
+            6 Primary Flea Transmission Vectors
+          </h2>
+          <p class="text-zinc-400 text-xs sm:text-sm mt-3 leading-relaxed">
+            From daily dog walks to dormant cocoons in vacant properties, understand how infestations initiate and proliferate.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {transmissionVectors.map((vector) => {
+            const Icon = vector.icon;
+            return (
+              <div class="slv-card rounded-2xl p-6 sm:p-7 border border-white/[0.08] hover:border-[#E5A93C]/40 transition-all flex flex-col justify-between group">
+                <div>
+                  <div class="w-12 h-12 rounded-xl bg-[#E5A93C]/10 border border-[#E5A93C]/20 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                    <Icon class="w-6 h-6 text-[#F6C453]" />
+                  </div>
+                  <h3 class="text-lg font-bold text-white mb-2.5 font-heading group-hover:text-[#F6C453] transition-colors">
+                    {vector.title}
+                  </h3>
+                  <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                    {vector.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    {/* The Pupal Window & Diapause */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06] bg-[#0c0d12]/50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div>
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase block mb-2 font-mono">
+            BIOLOGICAL RESILIENCE
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight font-heading mb-4">
+            The "Pupal Window": Why Fleas Seem to Appear Out of Nowhere
+          </h2>
+          <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+            A frequent scenario reported by Bangalore residents is moving into a freshly painted, thoroughly cleaned apartment that had been vacant for months—only to suffer intense flea bites around their ankles within 48 hours.
+          </p>
+          <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+            This occurs because flea pupae spin a protective sticky silk cocoon coated with surrounding sand and debris. Within this cocoon, the adult flea is impervious to most conventional insecticide sprays and desiccating cleansers.
+          </p>
+          <div class="slv-card rounded-2xl p-6 border border-[#E5A93C]/30 bg-[#121316]">
+            <h3 class="text-white font-bold text-base mb-2 font-heading">
+              What Triggers Sudden Flea Emergence?
+            </h3>
+            <ul class="space-y-2 text-xs sm:text-sm text-zinc-300">
+              <li class="flex items-center gap-2">
+                <CheckCircle2 class="w-4 h-4 text-[#F6C453] shrink-0" />
+                <span><strong>Mechanical Vibrations:</strong> Footsteps, vacuuming, and furniture shifting.</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <CheckCircle2 class="w-4 h-4 text-[#F6C453] shrink-0" />
+                <span><strong>Exhaled Carbon Dioxide (CO2):</strong> Signals that a warm-blooded host is nearby.</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <CheckCircle2 class="w-4 h-4 text-[#F6C453] shrink-0" />
+                <span><strong>Body Heat:</strong> Host proximity prompts immediate exit from the cocoon in under 3 seconds.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Related Knowledge Guides */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase block mb-2 font-mono">
+            CONTINUE LEARNING
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight font-heading">
+            Related Flea Educational Resources
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {relatedArticles.map((article) => (
+            <a
+              href={article.href}
+              class="slv-card rounded-2xl p-6 border border-white/[0.08] hover:border-[#E5A93C]/40 transition-all flex flex-col justify-between group block"
+            >
+              <div>
+                <span class="text-xs font-mono font-bold text-[#F6C453] uppercase tracking-wider block mb-2">
+                  Flea Guide
+                </span>
+                <h3 class="text-base font-bold text-white group-hover:text-[#F6C453] transition-colors mb-2 font-heading">
+                  {article.title}
+                </h3>
+                <p class="text-zinc-400 text-xs leading-relaxed mb-4">
+                  {article.desc}
+                </p>
+              </div>
+              <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs font-bold text-[#FFE08A] group-hover:text-white transition-colors">
+                <span>Read Guide</span>
+                <ArrowRight class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#E5A93C]" />
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Direct CTA */}
+    <section class="relative z-10 py-14 border-b border-white/[0.06] bg-[#0c0d10]/60">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl sm:text-3xl font-black text-white font-heading mb-3">
+          Break the Flea Transmission Cycle Today
+        </h2>
+        <p class="text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto mb-6">
+          Combine veterinary care for your pet with certified SLV environmental eradication for complete home protection.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="tel:9180397822" class="slv-btn-primary px-7 py-3 text-xs sm:text-sm font-bold gap-2 uppercase tracking-wider">
+            <Phone class="w-4 h-4 text-[#090a0c]" />
+            <span>Call 91803 97822</span>
+          </a>
+          <a href="/services/fleas" class="slv-btn-secondary px-7 py-3 text-xs sm:text-sm font-bold gap-2 uppercase tracking-wider">
+            <span>Explore Flea Treatments</span>
+            <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingActions client:load />
+</Layout>

@@ -1,0 +1,283 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { Header } from '../../../components/Header';
+import { Footer } from '../../../components/Footer';
+import { FloatingActions } from '../../../components/FloatingActions';
+import {
+  BookOpen,
+  Search,
+  Eye,
+  Layers,
+  Sparkles,
+  AlertTriangle,
+  CheckCircle2,
+  ArrowRight,
+  Phone,
+  MessageCircle,
+  Mail,
+  MapPin,
+  PawPrint,
+  Home,
+  ShieldCheck,
+  Activity,
+  Trash2,
+  Wind,
+  Bath
+} from 'lucide-react';
+
+const relatedArticles = [
+  {
+    title: 'Flea Identification',
+    desc: 'Diagnose flea bites, adult physical traits, and the white sock diagnostic test.',
+    href: '/knowledge/fleas/identification'
+  },
+  {
+    title: 'Where Fleas Hide & Breed',
+    desc: 'Discover harbourage zones in carpets, rugs, baseboard crevices, and upholstery.',
+    href: '/knowledge/fleas/where-they-hide'
+  },
+  {
+    title: 'How Fleas Enter & Spread',
+    desc: 'Understand entry vectors through pets, visiting animals, and carpet fibres.',
+    href: '/knowledge/fleas/how-they-spread'
+  },
+  {
+    title: 'Professional Flea Treatment',
+    desc: 'Targeted environmental management targeting eggs, larvae, and pupal emergence.',
+    href: '/knowledge/fleas/treatment-guide'
+  },
+  {
+    title: 'Flea FAQs',
+    desc: 'Frequently asked questions regarding flea lifecycles, human bites, and safety.',
+    href: '/knowledge/fleas/faq'
+  }
+];
+
+const preventionProtocols = [
+  {
+    title: 'Frequent High-Power Vacuuming',
+    desc: 'Vacuum carpets, area rugs, sofa cushions, and floor gaps at least twice weekly. The suction extracts up to 60% of flea eggs and 27% of larvae while the mechanical vibration stimulates pupae to hatch into treated zones.',
+    icon: Wind
+  },
+  {
+    title: 'Immediate Vacuum Bag Disposal',
+    desc: 'Always empty the vacuum canister into an outdoor trash bin immediately or seal disposable vacuum bags inside a plastic pouch to prevent hatched fleas from crawling back inside.',
+    icon: Trash2
+  },
+  {
+    title: 'Hot Water Textile Laundering (60°C+)',
+    desc: 'Wash all pet blankets, bedsheets, dog cushions, and removable couch slipcovers in hot water exceeding 60°C weekly, followed by high-heat cycle drying to destroy all lifecycle stages.',
+    icon: Bath
+  },
+  {
+    title: 'Year-Round Veterinary Flea Topicals',
+    desc: 'Consult your veterinarian to maintain continuous spot-on treatments, oral chews, or medicated collars on domestic dogs and cats throughout Bangalore’s humid monsoon and post-monsoon months.',
+    icon: PawPrint
+  },
+  {
+    title: 'Outdoor Perimeter & Lawn Maintenance',
+    desc: 'Mow lawns regularly, trim back overgrown ground cover, clear decaying leaf litter near verandas, and deter community stray cats from resting under porch overhangs.',
+    icon: Home
+  },
+  {
+    title: 'Sealing Floorboard & Tile Gaps',
+    desc: 'Use silicone caulk to seal hairline crevices along baseboards, loose parquet wood planks, and marble joints where organic debris and larvae congregate.',
+    icon: ShieldCheck
+  }
+];
+---
+
+<Layout
+  title="Flea Prevention Guide | Vacuuming, Pet Care & Home Defense | SLV Pest Control"
+  description="Master effective flea prevention in Bangalore homes. Learn step-by-step vacuuming methods, pet bedding sanitation, and environmental maintenance tips."
+  canonical="https://slvpestcontrol.com/knowledge/fleas/prevention"
+>
+  <Header client:load activeItem="knowledge" />
+
+  <main class="flex-1 w-full relative overflow-hidden bg-[#090a0c]">
+    {/* Background glow effects */}
+    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      <div class="absolute -top-40 right-1/4 w-[500px] h-[500px] bg-[#E5A93C]/[0.06] rounded-full blur-[140px]"></div>
+      <div class="absolute top-[40%] left-[-100px] w-[500px] h-[500px] bg-[#E5A93C]/[0.04] rounded-full blur-[160px]"></div>
+    </div>
+
+    {/* Breadcrumbs */}
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-zinc-400">
+        <a href="/" class="hover:text-white transition">Home</a>
+        <span>/</span>
+        <a href="/knowledge" class="hover:text-white transition">Knowledge Hub</a>
+        <span>/</span>
+        <a href="/services/fleas" class="hover:text-white transition">Fleas</a>
+        <span>/</span>
+        <span class="text-[#F6C453] font-semibold">Flea Prevention</span>
+      </nav>
+    </div>
+
+    {/* Article Hero */}
+    <section class="relative z-10 pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-white/[0.06]">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
+          <BookOpen class="w-3.5 h-3.5 text-[#E5A93C]" />
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase font-mono">
+            FLEA EDUCATIONAL GUIDE • PREVENTION &amp; HYGIENE
+          </span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.12] mb-4 font-heading">
+          Comprehensive Flea Prevention for <span class="slv-gold-text">Bangalore Homes</span>
+        </h1>
+
+        <p class="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          Preventing environmental re-infestation requires a dual strategy: proactive pet hygiene combined with systematic indoor textile sanitization. Here are the core protocols recommended by pest control specialists.
+        </p>
+      </div>
+    </section>
+
+    {/* Prevention Protocols Grid */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="w-5 h-[1.5px] bg-[#E5A93C]"></span>
+            <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase font-mono">
+              PREVENTION PROTOCOLS
+            </span>
+            <span class="w-5 h-[1.5px] bg-[#E5A93C]"></span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight font-heading">
+            6 Practical Steps to Keep Your Home Flea-Free
+          </h2>
+          <p class="text-zinc-400 text-xs sm:text-sm mt-3 leading-relaxed">
+            Implement these proven measures to deny fleas breeding reservoirs and maintain ongoing protection for your family and pets.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {preventionProtocols.map((protocol) => {
+            const Icon = protocol.icon;
+            return (
+              <div class="slv-card rounded-2xl p-6 sm:p-7 border border-white/[0.08] hover:border-[#E5A93C]/40 transition-all flex flex-col justify-between group">
+                <div>
+                  <div class="w-12 h-12 rounded-xl bg-[#E5A93C]/10 border border-[#E5A93C]/20 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                    <Icon class="w-6 h-6 text-[#F6C453]" />
+                  </div>
+                  <h3 class="text-lg font-bold text-white mb-2.5 font-heading group-hover:text-[#F6C453] transition-colors">
+                    {protocol.title}
+                  </h3>
+                  <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                    {protocol.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    {/* The Vacuuming Best Practice Guide */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06] bg-[#0c0d12]/50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div>
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase block mb-2 font-mono">
+            CRITICAL TECHNIQUE
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight font-heading mb-4">
+            How to Vacuum Effectively During a Flea Outbreak
+          </h2>
+          <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+            Vacuuming is not merely a cosmetic cleanup; it is a mechanical weapon against flea proliferation. Follow these four professional rules:
+          </p>
+          <div class="space-y-4">
+            <div class="slv-card rounded-2xl p-5 border border-white/[0.08] flex items-start gap-3">
+              <span class="w-7 h-7 rounded-lg bg-[#E5A93C]/15 text-[#F6C453] font-mono font-bold text-sm flex items-center justify-center shrink-0">1</span>
+              <div>
+                <h4 class="text-white font-bold text-sm mb-1">Use the Crevice Attachment Along Baseboards</h4>
+                <p class="text-zinc-400 text-xs leading-relaxed">Focus along walls and under heavy furniture edges where pet fur and flea dirt settle undisturbed by room traffic.</p>
+              </div>
+            </div>
+            <div class="slv-card rounded-2xl p-5 border border-white/[0.08] flex items-start gap-3">
+              <span class="w-7 h-7 rounded-lg bg-[#E5A93C]/15 text-[#F6C453] font-mono font-bold text-sm flex items-center justify-center shrink-0">2</span>
+              <div>
+                <h4 class="text-white font-bold text-sm mb-1">Vacuum Upholstered Furniture Thoroughly</h4>
+                <p class="text-zinc-400 text-xs leading-relaxed">Remove couch cushions, vacuum down into the inner crevices, and treat fabric skirts where pets lean against chairs.</p>
+              </div>
+            </div>
+            <div class="slv-card rounded-2xl p-5 border border-white/[0.08] flex items-start gap-3">
+              <span class="w-7 h-7 rounded-lg bg-[#E5A93C]/15 text-[#F6C453] font-mono font-bold text-sm flex items-center justify-center shrink-0">3</span>
+              <div>
+                <h4 class="text-white font-bold text-sm mb-1">Stimulate Pupal Emergence Before Professional Treatment</h4>
+                <p class="text-zinc-400 text-xs leading-relaxed">Vacuuming 2 to 4 hours before your pest control appointment forces dormant pupae to emerge, maximizing chemical knockdown efficiency.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Related Knowledge Guides */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase block mb-2 font-mono">
+            CONTINUE LEARNING
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight font-heading">
+            Related Flea Educational Resources
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {relatedArticles.map((article) => (
+            <a
+              href={article.href}
+              class="slv-card rounded-2xl p-6 border border-white/[0.08] hover:border-[#E5A93C]/40 transition-all flex flex-col justify-between group block"
+            >
+              <div>
+                <span class="text-xs font-mono font-bold text-[#F6C453] uppercase tracking-wider block mb-2">
+                  Flea Guide
+                </span>
+                <h3 class="text-base font-bold text-white group-hover:text-[#F6C453] transition-colors mb-2 font-heading">
+                  {article.title}
+                </h3>
+                <p class="text-zinc-400 text-xs leading-relaxed mb-4">
+                  {article.desc}
+                </p>
+              </div>
+              <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs font-bold text-[#FFE08A] group-hover:text-white transition-colors">
+                <span>Read Guide</span>
+                <ArrowRight class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#E5A93C]" />
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Direct CTA */}
+    <section class="relative z-10 py-14 border-b border-white/[0.06] bg-[#0c0d10]/60">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl sm:text-3xl font-black text-white font-heading mb-3">
+          Need Targeted Flea Eradication in Bangalore?
+        </h2>
+        <p class="text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto mb-6">
+          Combine your preventive habits with SLV's botanical and IGR micro-misting treatments. Starting at ₹799.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="tel:9180397822" class="slv-btn-primary px-7 py-3 text-xs sm:text-sm font-bold gap-2 uppercase tracking-wider">
+            <Phone class="w-4 h-4 text-[#090a0c]" />
+            <span>Call 91803 97822</span>
+          </a>
+          <a href="/services/fleas" class="slv-btn-secondary px-7 py-3 text-xs sm:text-sm font-bold gap-2 uppercase tracking-wider">
+            <span>Explore Flea Treatments</span>
+            <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingActions client:load />
+</Layout>

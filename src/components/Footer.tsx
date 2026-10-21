@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="/services/cockroaches" className="hover:text-white transition">
+                <a href="/services" className="hover:text-white transition">
                   Pest Control
                 </a>
               </li>

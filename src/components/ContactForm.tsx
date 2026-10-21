@@ -63,6 +63,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ defaultService, defaul
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
+  const [referenceId, setReferenceId] = useState<string>('');
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -101,19 +103,40 @@ export const ContactForm: React.FC<ContactFormProps> = ({ defaultService, defaul
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setServerError(null);
 
     if (!validate()) {
       return;
     }
 
     setIsSubmitting(true);
-    // UI state simulation for instant feedback
-    setTimeout(() => {
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (response.ok && result && result.success) {
+        setReferenceId(result.referenceId || 'SLV-' + Math.floor(100000 + Math.random() * 900000));
+        setSubmitted(true);
+      } else {
+        const errorMsg = (result && result.error) || 'We encountered a momentary issue processing your request. Please call us directly at 91803 97822.';
+        setServerError(errorMsg);
+      }
+    } catch (err) {
+      setServerError('Network connectivity error. Please call our Bangalore desk directly at 91803 97822 or message via WhatsApp.');
+    } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
-    }, 450);
+    }
   };
 
   const handleReset = () => {
@@ -122,24 +145,26 @@ export const ContactForm: React.FC<ContactFormProps> = ({ defaultService, defaul
       phone: '',
       email: '',
       propertyType: '',
-      pestProblem: '',
+      pestProblem: initialPest,
       serviceAddress: '',
       message: '',
       preferredContact: 'Phone Call',
     });
     setErrors({});
+    setServerError(null);
+    setReferenceId('');
     setSubmitted(false);
   };
 
   if (submitted) {
     return (
-      <div className="slv-card rounded-3xl p-8 sm:p-12 text-center backdrop-blur-xl border border-cyan-500/30 bg-[#0e1015]/95 shadow-[0_20px_60px_rgba(0,0,0,0.85)] animate-in fade-in zoom-in-95 duration-300">
+      <div className="slv-card rounded-3xl p-8 sm:p-12 text-center backdrop-blur-xl border border-[#E5A93C]/35 bg-[#0e1015]/95 shadow-[0_20px_60px_rgba(0,0,0,0.85)] animate-in fade-in zoom-in-95 duration-300">
         <div className="w-16 h-16 rounded-2xl bg-[#E5A93C]/10 border border-[#E5A93C]/40 text-[#F6C453] flex items-center justify-center mx-auto mb-6 shadow-[0_0_20px_rgba(229,169,60,0.2)]">
           <CheckCircle2 className="w-8 h-8 text-[#F6C453]" />
         </div>
 
         <span className="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase block mb-2 font-mono">
-          Callback Request Received
+          Callback Request Verified &bull; Ref: {referenceId}
         </span>
 
         <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-3 font-heading">
@@ -150,7 +175,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ defaultService, defaul
           We have registered your callback request for <span className="text-[#FFE08A] font-semibold">{formData.pestProblem}</span> at your <span className="text-white font-medium">{formData.propertyType}</span> in <span className="text-white font-medium">{formData.serviceAddress}</span>.
         </p>
 
-        <div className="p-4 rounded-xl bg-white/[0.03] border border-cyan-500/20 max-w-md mx-auto mb-8 text-xs text-zinc-300 flex items-center justify-center gap-2">
+        <div className="p-4 rounded-xl bg-white/[0.03] border border-[#E5A93C]/20 max-w-md mx-auto mb-8 text-xs text-zinc-300 flex items-center justify-center gap-2">
           <Sparkles className="w-4 h-4 text-[#E5A93C] shrink-0" />
           <span>
             Preferred method: <strong className="text-white">{formData.preferredContact}</strong> ({formData.phone})
@@ -169,7 +194,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ defaultService, defaul
           <button
             type="button"
             onClick={handleReset}
-            className="slv-btn-secondary w-full sm:w-auto px-6 py-3.5 text-xs font-bold uppercase tracking-wider hover:border-cyan-400"
+            className="slv-btn-secondary w-full sm:w-auto px-6 py-3.5 text-xs font-bold uppercase tracking-wider hover:border-[#F6C453]"
           >
             Submit Another Request
           </button>
@@ -179,10 +204,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({ defaultService, defaul
   }
 
   return (
-    <div className="slv-card rounded-3xl p-6 sm:p-9 lg:p-11 relative overflow-hidden backdrop-blur-xl border border-cyan-500/25 bg-[#0e1014]/95 shadow-[0_25px_60px_rgba(0,0,0,0.7)]">
+    <div className="slv-card rounded-3xl p-6 sm:p-9 lg:p-11 relative overflow-hidden backdrop-blur-xl border border-[#E5A93C]/25 bg-[#0e1014]/95 shadow-[0_25px_60px_rgba(0,0,0,0.7)]">
       {/* Decorative top ambient glow */}
       <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#E5A93C]/[0.08] rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-cyan-500/[0.06] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[#E5A93C]/[0.05] rounded-full blur-3xl pointer-events-none" />
 
       {/* Header of Form */}
       <div className="mb-7 pb-5 border-b border-white/[0.07] relative z-10">
@@ -449,12 +474,27 @@ export const ContactForm: React.FC<ContactFormProps> = ({ defaultService, defaul
           </div>
         </div>
 
+        {/* Server / Network Error Alert */}
+        {serverError && (
+          <div className="p-4 rounded-xl bg-red-950/40 border border-red-500/40 text-red-200 text-xs sm:text-sm flex items-start gap-3 animate-in fade-in">
+            <AlertCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+            <div className="space-y-1">
+              <p className="font-semibold">{serverError}</p>
+              <p className="text-[11px] text-red-300">
+                You can also call us directly at <a href="tel:9180397822" className="underline font-bold text-white hover:text-[#FFE08A]">91803 97822</a> for immediate assistance.
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Primary Action Button: Gold Request a Callback */}
         <div className="pt-2">
           <button
             type="submit"
             disabled={isSubmitting}
-            className="slv-btn-primary w-full py-4 text-xs sm:text-sm font-black gap-2 uppercase tracking-wider cursor-pointer shadow-lg shadow-[#E5A93C]/25 hover:shadow-[#E5A93C]/40"
+            className={`slv-btn-primary w-full py-4 text-xs sm:text-sm font-black gap-2 uppercase tracking-wider shadow-lg shadow-[#E5A93C]/25 hover:shadow-[#E5A93C]/40 ${
+              isSubmitting ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'
+            }`}
           >
             <span>{isSubmitting ? 'Submitting Request...' : 'REQUEST A CALLBACK'}</span>
             <ArrowRight className="w-4 h-4" />

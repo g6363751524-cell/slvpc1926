@@ -32,6 +32,16 @@ const {
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script is:inline>
+      /* Ensure React Refresh preamble globals exist to prevent hydration import errors */
+      if (!window.$RefreshReg$) {
+        window.$RefreshReg$ = () => {};
+      }
+      if (!window.$RefreshSig$) {
+        window.$RefreshSig$ = () => (type) => type;
+      }
+      window.__vite_plugin_react_preamble_installed__ = true;
+    </script>
     <slot name="head" />
   </head>
   <body class="bg-[#090a0c] text-zinc-200 antialiased selection:bg-[#E5A93C] selection:text-black min-h-screen flex flex-col font-sans">

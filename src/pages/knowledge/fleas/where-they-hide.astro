@@ -1,0 +1,286 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { Header } from '../../../components/Header';
+import { Footer } from '../../../components/Footer';
+import { FloatingActions } from '../../../components/FloatingActions';
+import {
+  BookOpen,
+  Search,
+  Eye,
+  Layers,
+  Sparkles,
+  AlertTriangle,
+  CheckCircle2,
+  ArrowRight,
+  Phone,
+  MessageCircle,
+  Mail,
+  MapPin,
+  PawPrint,
+  Home,
+  ShieldCheck,
+  Activity,
+  BedDouble,
+  Sofa
+} from 'lucide-react';
+
+const relatedArticles = [
+  {
+    title: 'Flea Identification',
+    desc: 'Diagnose flea bites, adult physical traits, and the white sock diagnostic test.',
+    href: '/knowledge/fleas/identification'
+  },
+  {
+    title: 'How Fleas Enter & Spread',
+    desc: 'Understand entry vectors through pets, visiting animals, and carpet fibres.',
+    href: '/knowledge/fleas/how-they-spread'
+  },
+  {
+    title: 'Flea Prevention Guide',
+    desc: 'Sanitation steps, regular vacuuming, pet care coordination, and perimeter barriers.',
+    href: '/knowledge/fleas/prevention'
+  },
+  {
+    title: 'Professional Flea Treatment',
+    desc: 'Targeted environmental management targeting eggs, larvae, and pupal emergence.',
+    href: '/knowledge/fleas/treatment-guide'
+  },
+  {
+    title: 'Flea FAQs',
+    desc: 'Frequently asked questions regarding flea lifecycles, human bites, and safety.',
+    href: '/knowledge/fleas/faq'
+  }
+];
+
+const harbourageZones = [
+  {
+    title: 'Pet Bedding, Sleeping Mats & Kennels',
+    desc: 'The primary nesting epicenter. Because female fleas lay non-sticky eggs while hosts rest, hundreds of eggs drop directly into pet cushions, blankets, and crate seams daily.',
+    icon: PawPrint
+  },
+  {
+    title: 'Dense Carpets, Area Rugs & Runners',
+    desc: 'Flea larvae are photonegative (light-avoiding) and burrow deep into the base of carpet piles, feeding on shed adult flea dirt (dried blood) until pupation.',
+    icon: Layers
+  },
+  {
+    title: 'Under & Between Upholstered Furniture',
+    desc: 'The seams of sofas, recliners, and beneath living room couches where household pets lounge or rub against fabric corners.',
+    icon: Sofa
+  },
+  {
+    title: 'Hardwood Plank Cracks & Baseboard Crevices',
+    desc: 'Tiny hairline gaps between floor tiles, baseboard margins, and floorboards where sweeping or foot traffic pushes organic dust and eggs.',
+    icon: Home
+  },
+  {
+    title: 'Human Bedding & Bedroom Mattresses',
+    desc: 'When pets are permitted on beds, flea eggs and larvae accumulate in mattress seams, bed skirts, and along under-bed storage boxes.',
+    icon: BedDouble
+  },
+  {
+    title: 'Shaded Outdoor Verandas & Garden Soil',
+    desc: 'Cool, shaded dirt patches beneath balconies, compound wall corners, or dog kennel runs where humidity protects developing larvae from heat desiccation.',
+    icon: ShieldCheck
+  }
+];
+---
+
+<Layout
+  title="Where Fleas Hide & Breed | Indoor Harbourage Hotspots | SLV Pest Control"
+  description="Discover where fleas hide and breed inside Bangalore homes. Learn why carpets, pet bedding, and floor gaps conceal 95% of developing flea populations."
+  canonical="https://slvpestcontrol.com/knowledge/fleas/where-they-hide"
+>
+  <Header client:load activeItem="knowledge" />
+
+  <main class="flex-1 w-full relative overflow-hidden bg-[#090a0c]">
+    {/* Background glow effects */}
+    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      <div class="absolute -top-40 right-1/4 w-[500px] h-[500px] bg-[#E5A93C]/[0.06] rounded-full blur-[140px]"></div>
+      <div class="absolute top-[40%] left-[-100px] w-[500px] h-[500px] bg-[#E5A93C]/[0.04] rounded-full blur-[160px]"></div>
+    </div>
+
+    {/* Breadcrumbs */}
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-zinc-400">
+        <a href="/" class="hover:text-white transition">Home</a>
+        <span>/</span>
+        <a href="/knowledge" class="hover:text-white transition">Knowledge Hub</a>
+        <span>/</span>
+        <a href="/services/fleas" class="hover:text-white transition">Fleas</a>
+        <span>/</span>
+        <span class="text-[#F6C453] font-semibold">Where Fleas Hide</span>
+      </nav>
+    </div>
+
+    {/* Article Hero */}
+    <section class="relative z-10 pt-10 sm:pt-14 pb-12 sm:pb-16 border-b border-white/[0.06]">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
+          <BookOpen class="w-3.5 h-3.5 text-[#E5A93C]" />
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase font-mono">
+            FLEA EDUCATIONAL GUIDE • HARBOURAGE ZONES
+          </span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.12] mb-4 font-heading">
+          Where Fleas Hide &amp; Breed Inside <span class="slv-gold-text">Bangalore Homes</span>
+        </h1>
+
+        <p class="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          Adult fleas on pets represent merely the visible tip of the iceberg. Understand where 95% of an infestation conceals itself—as eggs, larvae, and resilient pupae in your living environment.
+        </p>
+      </div>
+    </section>
+
+    {/* Harbourage Hotspots Grid */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="w-5 h-[1.5px] bg-[#E5A93C]"></span>
+            <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase font-mono">
+              TARGETED ZONES
+            </span>
+            <span class="w-5 h-[1.5px] bg-[#E5A93C]"></span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight font-heading">
+            6 Primary Flea Environmental Hotspots
+          </h2>
+          <p class="text-zinc-400 text-xs sm:text-sm mt-3 leading-relaxed">
+            Targeting these critical areas during daily vacuuming and professional mist treatments is vital for breaking the flea lifecycle.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {harbourageZones.map((zone) => {
+            const Icon = zone.icon;
+            return (
+              <div class="slv-card rounded-2xl p-6 sm:p-7 border border-white/[0.08] hover:border-[#E5A93C]/40 transition-all flex flex-col justify-between group">
+                <div>
+                  <div class="w-12 h-12 rounded-xl bg-[#E5A93C]/10 border border-[#E5A93C]/20 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                    <Icon class="w-6 h-6 text-[#F6C453]" />
+                  </div>
+                  <h3 class="text-lg font-bold text-white mb-2.5 font-heading group-hover:text-[#F6C453] transition-colors">
+                    {zone.title}
+                  </h3>
+                  <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                    {zone.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    {/* The 5% vs 95% Environmental Rule */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06] bg-[#0c0d12]/50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div>
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase block mb-2 font-mono">
+            ENVIRONMENTAL BIOLOGY
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight font-heading mb-4">
+            The "Flea Pyramid": Why Treating Pets Alone Fails
+          </h2>
+          <p class="text-zinc-300 text-sm leading-relaxed mb-6">
+            Many property owners in Bangalore believe that applying pet spot-on drops will resolve the flea infestation. In reality, the flea population is distributed across four life stages:
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/[0.08] text-center">
+              <span class="text-2xl font-black text-[#F6C453] font-mono block mb-1">50%</span>
+              <span class="text-white font-bold text-xs block mb-0.5">Flea Eggs</span>
+              <span class="text-zinc-500 text-[11px]">In carpets &amp; tiles</span>
+            </div>
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/[0.08] text-center">
+              <span class="text-2xl font-black text-[#F6C453] font-mono block mb-1">35%</span>
+              <span class="text-white font-bold text-xs block mb-0.5">Flea Larvae</span>
+              <span class="text-zinc-500 text-[11px]">Deep in dark piles</span>
+            </div>
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/[0.08] text-center">
+              <span class="text-2xl font-black text-[#F6C453] font-mono block mb-1">10%</span>
+              <span class="text-white font-bold text-xs block mb-0.5">Pupal Cocoons</span>
+              <span class="text-zinc-500 text-[11px]">Resistant silken shields</span>
+            </div>
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-[#E5A93C]/40 text-center bg-[#E5A93C]/[0.04]">
+              <span class="text-2xl font-black text-[#F6C453] font-mono block mb-1">5%</span>
+              <span class="text-white font-bold text-xs block mb-0.5">Adult Fleas</span>
+              <span class="text-zinc-400 text-[11px]">Biting hosts directly</span>
+            </div>
+          </div>
+
+          <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed">
+            Until the 95% environmental reservoir in carpets and floor cracks is treated with specialized Insect Growth Regulators (IGRs), pupae will continue to emerge for weeks, re-infesting pets and occupants.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* Related Knowledge Guides */}
+    <section class="relative z-10 py-16 sm:py-20 border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-[#E5A93C] text-xs font-bold tracking-[0.2em] uppercase block mb-2 font-mono">
+            CONTINUE LEARNING
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight font-heading">
+            Related Flea Educational Resources
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {relatedArticles.map((article) => (
+            <a
+              href={article.href}
+              class="slv-card rounded-2xl p-6 border border-white/[0.08] hover:border-[#E5A93C]/40 transition-all flex flex-col justify-between group block"
+            >
+              <div>
+                <span class="text-xs font-mono font-bold text-[#F6C453] uppercase tracking-wider block mb-2">
+                  Flea Guide
+                </span>
+                <h3 class="text-base font-bold text-white group-hover:text-[#F6C453] transition-colors mb-2 font-heading">
+                  {article.title}
+                </h3>
+                <p class="text-zinc-400 text-xs leading-relaxed mb-4">
+                  {article.desc}
+                </p>
+              </div>
+              <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs font-bold text-[#FFE08A] group-hover:text-white transition-colors">
+                <span>Read Guide</span>
+                <ArrowRight class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#E5A93C]" />
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Direct CTA */}
+    <section class="relative z-10 py-14 border-b border-white/[0.06] bg-[#0c0d10]/60">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl sm:text-3xl font-black text-white font-heading mb-3">
+          Eliminate Hidden Flea Harbourages Across Bangalore
+        </h2>
+        <p class="text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto mb-6">
+          Schedule our forensic indoor flea inspection to target carpet piles, sub-flooring, and pet nesting pockets.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="tel:9180397822" class="slv-btn-primary px-7 py-3 text-xs sm:text-sm font-bold gap-2 uppercase tracking-wider">
+            <Phone class="w-4 h-4 text-[#090a0c]" />
+            <span>Call 91803 97822</span>
+          </a>
+          <a href="/services/fleas" class="slv-btn-secondary px-7 py-3 text-xs sm:text-sm font-bold gap-2 uppercase tracking-wider">
+            <span>Explore Flea Treatments</span>
+            <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingActions client:load />
+</Layout>
